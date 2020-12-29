@@ -1,8 +1,7 @@
-const {gql} = require("apollo-server");
+const { gql } = require('apollo-server');
 
 module.exports = gql `
 # scalar DateTime
-
   type Company {
     id: ID!
     name: String!
@@ -29,14 +28,16 @@ module.exports = gql `
     company(id: ID!): Company! 
   }
 
-  type deleteCompanyRes {
-    id: ID!
-  }
+#   type deleteCompanyRes {
+#     id: ID!
+#   }
 
-  type Mutation {
-    createCompany(company: CompanyInput): Company!,
-    updateCompany(id: ID!, company: CompanyInput): Company!,
-    deleteCompany(id: ID!): deleteCompanyRes,
-  }
+#   type Mutation {
+#     createCompany(company: CompanyInput): Company!,
+#     updateCompany(id: ID!, company: CompanyInput): Company!,
+#     deleteCompany(id: ID!): deleteCompanyRes,
+
 `;
+
+// module.exports = companySchema;
 

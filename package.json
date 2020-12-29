@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/paulapompeo/flash-apolloserver#readme",
   "dependencies": {
+    "apollo-datasource-mongo": "^0.1.4",
     "apollo-server": "^2.19.1",
     "dataloader": "^2.0.0",
     "dotenv": "^8.2.0",
