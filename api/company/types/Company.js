@@ -1,16 +1,14 @@
 const { gql } = require('apollo-server');
 
 module.exports = gql `
-# scalar DateTime
+
   type Company {
     id: ID!
     name: String!
     trade: String
     cnpj: String
     address: String
-    # benefits: Array 
-    # employees: [Employees] 
-    # createdAt: DateTime
+    employees: [String] 
   }
 
   input CompanyInput {
@@ -19,7 +17,7 @@ module.exports = gql `
     cnpj: Int
     address: String
     # benefits: Array 
-    # employees: [Employees] 
+    # employees: [Employee] 
     # createdAt: DateTime
   }
 
@@ -39,5 +37,4 @@ module.exports = gql `
 
 `;
 
-// module.exports = companySchema;
 

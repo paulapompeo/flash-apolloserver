@@ -1,6 +1,7 @@
 const employees = require("./employees");
-// const company = require("./company");
+const companyEmployees = require("./companyEmployees");
 
 module.exports = {
   employees,
+  companyEmployees
 }

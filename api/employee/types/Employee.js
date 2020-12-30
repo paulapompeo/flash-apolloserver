@@ -5,18 +5,15 @@ module.exports = gql `
   type Employee {
     id: ID!
     name: String!
-    lasName: String
+    lastName: String
     cpf: String
     email: String
     company: String
-    # benefits: Array 
-    # employees: [Employees] 
-    # createdAt: DateTime
   }
 
   input CompanyInput {
     name: String!
-    lasName: String
+    lastName: String
     cpf: String
     email: String
     company: String
@@ -26,8 +23,8 @@ module.exports = gql `
   }
 
   type Query {
-    employees(page: Int, limit: Int): [Employee]
-    # company(id: ID!): Company! 
+    employees(page: Int, limit: Int, company: String): [Employee]
+    companyEmployees(value: String): [Employee]
   }
 
 #   type deleteCompanyRes {
@@ -40,6 +37,4 @@ module.exports = gql `
 #     deleteCompany(id: ID!): deleteCompanyRes,
 
 `;
-
-// module.exports = companySchema;
 

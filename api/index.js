@@ -1,26 +1,32 @@
 const { ApolloServer } = require('apollo-server')
-// const { mergeTypeDefs } = require('graphql-tools')
+const { mergeTypeDefs } = require('graphql-tools')
 const connectDB = require("./config/connection")
 
-// const { companySchema, companyResolvers, CompaniesAPI } = require('./company')
-// const { employeeSchema, employeeResolvers, EmployeesAPI } = require('./employee')
+const employeeTypeDefs = require("./employee/types");
+const companyTypeDefs = require("./company/types");
 
-// const typeDefs = mergeTypeDefs([companySchema, employeeSchema ])
-// const typeDefs = [companySchema]
-// const resolvers = [companyResolvers]
-// const resolvers = [companyResolvers, employeeResolvers]
+const employeeResolvers = require("./employee/resolvers");
+const companyResolvers = require("./company/resolvers");
 
-const typeDefs = require("./employee/types");
-const resolvers = require("./employee/resolvers");
-const models = require("./employee/models")
+const employeeModels = require("./employee/models");
+const companyModels = require("./company/models");
+
+const typeDefs = mergeTypeDefs([employeeTypeDefs, companyTypeDefs ])
+const resolvers = [companyResolvers, employeeResolvers]
 
 connectDB();
 
 const server = new ApolloServer({ 
   typeDefs, 
   resolvers,
-  context: {models}
+  context: () => {
+    return {
+      employeeModels,
+      companyModels
+    }
+  }
 });
+
 
 server.listen({ port: process.env.PORT || 4000 }).then(({ url }) => {
   console.log(`🚀 Server ready at ${url}`);

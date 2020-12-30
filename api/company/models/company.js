@@ -15,9 +15,9 @@ const companySchema = new Schema({
   address: {
     type: String,
   },
-  // employees: {
-  //   type: Array,
-  // },
+  employees: {
+    type: Array,
+  },
 });
 
 const Company = mongoose.model("Company", companySchema);

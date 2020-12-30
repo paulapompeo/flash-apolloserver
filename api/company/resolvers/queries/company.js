@@ -1,4 +1,4 @@
-module.exports = async (_, {id}, {models}) => {
-    return await models.Company.findById(id);
+module.exports = async (_, {id}, {companyModels}) => {
+    return await companyModels.Company.findById(id);
 };
   

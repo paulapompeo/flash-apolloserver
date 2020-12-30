@@ -1,4 +1,4 @@
-module.exports = async (_, {}, {models}) => {
-    return await models.Employee.find();
+module.exports = async (_, {}, {employeeModels}) => {
+    return await employeeModels.Employee.find();
 };
   
