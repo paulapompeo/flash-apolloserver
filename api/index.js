@@ -10,23 +10,11 @@ const connectDB = require("./config/connection")
 // const resolvers = [companyResolvers]
 // const resolvers = [companyResolvers, employeeResolvers]
 
-const typeDefs = require("./company/types");
-const resolvers = require("./company/resolvers");
-const models = require("./company/models")
+const typeDefs = require("./employee/types");
+const resolvers = require("./employee/resolvers");
+const models = require("./employee/models")
 
 connectDB();
-
-//servidor
-// const server = new ApolloServer ( { 
-//     typeDefs,
-//     resolvers,
-//     dataSources: () => {
-//       return {
-//         companiesAPI: new CompaniesAPI(dbConfig),
-//         // employeesAPI: new EmployeesAPI(dbConfig),
-//       }
-//     }
-// } )
 
 const server = new ApolloServer({ 
   typeDefs, 
